@@ -1,4 +1,4 @@
-FROM docker-registry.me.sap.corp/qa/node6-lts
+FROM node:8.9.4
 EXPOSE 80 443
 
 #pre npm install

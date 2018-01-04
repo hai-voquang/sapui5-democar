@@ -1,4 +1,4 @@
-FROM docker-registry.me.sap.corp/qa/node6-lts
+FROM node:8.9.4
 EXPOSE 80 443
 
 #pre npm install
@@ -8,29 +8,29 @@ COPY ./package.json /data/default_frontend_npm/package.json
 RUN cd /data/default_frontend_npm/ && npm install
 
 #Build arguments
-ARG ENV=dev
-ARG SRC=local
+ARG ENV=prod
+ARG SRC=master
 ARG TAG=latest
 ARG TIME
 
-RUN printf "Infragate frontend build log\n - Argument ENV=${ENV}\n - Argument SRC=${SRC}\n - Argument TAG=${TAG}\n - Argument TIME=${TIME}\n" > /infragate-frontend_build.log
+RUN printf "Democart frontend build log\n - Argument ENV=${ENV}\n - Argument SRC=${SRC}\n - Argument TAG=${TAG}\n - Argument TIME=${TIME}\n" > /democart-frontend_build.log
 
 #git clone
-RUN cd /data && if [ "${SRC}" = "master" ]; then git clone ssh://TrexService@hdbgerrit.wdf.sap.corp:29418/infra_gate; else  git clone ssh://TrexService@hdbgerrit.wdf.sap.corp:29418/infra_gate -b ${SRC}; fi
+RUN cd /data && if [ "${SRC}" = "master" ]; then git clone https://github.com/hai-voquang/sapui5-democar.git; else  git clone https://github.com/hai-voquang/sapui5-democar.git -b ${SRC}; fi
 
 #link nginx file
-RUN if [ "${ENV}" = "prod" ]; then ln -s /data/infra_gate/frontend/infragate.me.sap.corp.conf /etc/nginx/vhosts.d/infragate.me.sap.corp.conf; else ln -s /data/infra_gate/frontend/infragate-${ENV}.me.sap.corp.conf /etc/nginx/vhosts.d/infragate.me.sap.corp.conf; fi
+RUN if [ "${ENV}" = "prod" ]; then ln -s /data/democart/democart.conf /etc/nginx/vhosts.d/democartconf; else ln -s /data/democart/democart-${ENV}.conf /etc/nginx/vhosts.d/democart.conf; fi
 
 #copy pre-installed node_modules to frontend folder
-RUN rsync -a /data/default_frontend_npm/node_modules /data/infra_gate/frontend/
+RUN rsync -a /data/default_frontend_npm/node_modules /data/democart/
 
 #npm install
-RUN cd /data/infra_gate/frontend && npm install
+RUN cd /data/democart && npm install
 
 #write build log
-RUN printf "{\"env\": \"${ENV}\", \"src\": \"${SRC}\", \"tag\": \"${TAG}\", \"buildtime\": \"${TIME}\"}" > /data/infra_gate/frontend/webapp/build_log.json
+RUN printf "{\"env\": \"${ENV}\", \"src\": \"${SRC}\", \"tag\": \"${TAG}\", \"buildtime\": \"${TIME}\"}" > /data/democart/webapp/build_log.json
 
 #gulp build
-RUN cd /data/infra_gate/frontend && gulp build
+RUN cd /data/democart && gulp build
 
-RUN printf "\nBuild Success.\n" >> /infragate-frontend_build.log
+RUN printf "\nBuild Success.\n" >> /democart_build.log
