@@ -1,0 +1,59 @@
+{
+  "id": "/infragate/frontend-dev",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "constraints": [
+    [
+      "role",
+      "CLUSTER",
+      "master"
+    ]
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "docker-registry.me.sap.corp/qa/infragate-dev:latest",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 0,
+          "servicePort": 8080,
+          "protocol": "tcp",
+          "name": "http-frontend",
+          "labels": {}
+        }
+      ],
+      "privileged": true,
+      "parameters": [],
+      "forcePullImage": true
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "TCP",
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false,
+      "port": 80
+    }
+  ],
+  "labels": {
+    "HAPROXY_0_VHOST": "infragate-dev.me.sap.corp",
+    "HAPROXY_GROUP": "external"
+  },
+  "portDefinitions": [
+    {
+      "port": 8080,
+      "protocol": "tcp",
+      "name": "http",
+      "labels": {}
+    }
+  ]
+}

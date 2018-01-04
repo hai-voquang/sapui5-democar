@@ -1,0 +1,3 @@
+# Ignore sap ui5 resources file for test suite
+webapp/resources/*
+webapp/test-resources/*
