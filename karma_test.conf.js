@@ -48,7 +48,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            //'**/!(*.min).js': ['eslint'],
+            '**/!(*.min).js': [],
             'model/*.js': ['coverage'],
             'function/*.js': ['coverage']
         },
@@ -148,8 +148,8 @@ module.exports = function (config) {
         //browsers: ['PhantomJS_without_security', 'Chrome_without_security', 'Firefox_without_secuity', 'IE', 'Edge'],
         //browsers: ['Chrome_without_security', 'Firefox_without_secuity', 'IE', 'Edge'],
         //browsers: ['Chrome_without_security', 'Firefox_without_secuity', 'IE'],
-        //browsers: ['PhantomJS_without_security'],
-        browsers: ['Chrome_without_security'],
+        browsers: ['PhantomJS_without_security'],
+        //browsers: ['Chrome_without_security'],
 
 
         customLaunchers: {
@@ -165,7 +165,7 @@ module.exports = function (config) {
             },
             Chrome_without_security: {
                 base: 'Chrome',
-                flags: ['--disable-web-security']
+                flags: ['--disable-web-security','--no-proxy-server']
             },
             Firefox_without_secuity: {
                 base: 'Firefox',

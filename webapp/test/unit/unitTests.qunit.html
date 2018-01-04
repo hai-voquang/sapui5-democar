@@ -6,16 +6,21 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta charset="UTF-8">
 
-    <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m" data-sap-ui-compatVersion="edge" data-sap-ui-preload="async" data-sap-ui-resourceroots='{
-				"sap.ui.demo.cart": "../../"
-			}'>
+    <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" 
+    data-sap-ui-libs="sap.m" 
+    data-sap-ui-compatVersion="edge" 
+    data-sap-ui-preload="async"
+    data-sap-ui-theme="sap_belize"
+    data-sap-ui-resourceroots='{"sap.ui.demo.cart": "../../"}'>
     </script>
 
     <script>
-        jQuery.sap.require("sap.ui.qunit.qunit-css");
-        jQuery.sap.require("sap.ui.thirdparty.qunit");
-        jQuery.sap.require("sap.ui.qunit.qunit-junit");
-        jQuery.sap.require("sap.ui.qunit.qunit-coverage");
+        jQuery.sap.require('sap.ui.qunit.qunit-css');
+        jQuery.sap.require('sap.ui.thirdparty.qunit');
+        jQuery.sap.require('sap.ui.qunit.qunit-junit');
+        jQuery.sap.require('sap.ui.thirdparty.sinon');
+        jQuery.sap.require('sap.ui.thirdparty.sinon-qunit');
+        jQuery.sap.require('sap.ui.qunit.qunit-coverage');
 
         QUnit.config.autostart = false;
 
@@ -28,10 +33,13 @@
     </script>
 
 </head>
-
 <body>
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
+<div id="content"></div>
+<h1 id="qunit-header">Unit tests for QA INFRA GATE</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-userAgent"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<ol id="qunit-tests"></ol>
+<div id="qunit-fixture"></div>
 </body>
-
 </html>
