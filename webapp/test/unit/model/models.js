@@ -26,7 +26,7 @@ sap.ui.define([
 	}
 
 	QUnit.test("Should initialize a device model for desktop", function (assert) {
-		isPhoneTestCase.call(this, assert, false);
+		isPhoneTestCase.call(this, assert, true);
 	});
 
 	QUnit.test("Should initialize a device model for phone", function (assert) {
