@@ -18,8 +18,8 @@ RUN printf "Democart log\n - Argument ENV=${ENV}\n - Argument SRC=${SRC}\n - Arg
 #copy source from local
 COPY ./ /data/workspace/democart/
 
-RUN if [ -d "$/etc/nginx/vhosts.d" ]; then mkdir -p /ect/nginx/vhosts.d/; fi
-RUN ls -l /etc/nginx
+RUN if [ ! -d "$/etc/nginx/vhosts.d" ]; then mkdir -p /ect/nginx/vhosts.d; fi
+#RUN ls -l /etc/nginx
 #link nginx file
 RUN if [ "${ENV}" = "prod" ]; then cp -f /data/workspace/democart/democart.conf /etc/nginx/vhosts.d/democart.conf; else ln -s /data/workspace/democart/democart-${ENV}.conf /etc/nginx/vhosts.d/democart.conf; fi
 
