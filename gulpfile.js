@@ -53,7 +53,7 @@ gulp.task('server:dist', function () {
     return browserSync.init({
         browser: 'chrome',
         logLevel: 'silent',
-        port: 8089,
+        port: 8088,
         server: {
             baseDir: './dist'
         },
