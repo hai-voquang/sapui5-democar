@@ -1,5 +1,5 @@
 FROM codekoalas/nginx-node
-EXPOSE 8088 443
+EXPOSE 8089 443
 RUN npm config set proxy http://proxy:8080
 #pre npm install
 RUN npm install -g eslint gulp-cli hdb karma-cli
@@ -34,13 +34,12 @@ RUN cd /data/workspace/democart/ && npm install
 RUN printf "{\"env\": \"${ENV}\", \"src\": \"${SRC}\", \"tag\": \"${TAG}\", \"buildtime\": \"${TIME}\"}" > /data/workspace/democart/webapp/build_log.json
 
 #gulp test
-RUN cd /data/workspace/democart && gulp test
+#RUN cd /data/workspace/democart && gulp test
 
 #gulp build
 RUN cd /data/workspace/democart && gulp build
 
 RUN printf "\nBuild Success.\n" >> /democart_build.log
-
-RUN cd /data/workspace/democart
+WORKDIR /data/workspace/democart
 EXPOSE 8088
 CMD [ "npm", "start" ]
