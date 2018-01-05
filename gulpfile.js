@@ -53,6 +53,7 @@ gulp.task('server:dist', function () {
     return browserSync.init({
         browser: 'chrome',
         logLevel: 'silent',
+        port: 8088,
         server: {
             baseDir: './dist'
         },
@@ -96,7 +97,7 @@ gulp.task('preload:all', function () {
         .pipe(ui5preload({ base: paths.dist, namespace: 'sap.ui.demo.cart' }))
         .pipe(gulp.dest(paths.dist));
 });
-
+gulp.task('prod', ['server:dist']);
 gulp.task('build', function () {
     runSequence('clean:dist', 'build:all', 'preload:all');
 });
