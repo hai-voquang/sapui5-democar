@@ -1,23 +1,19 @@
 {
-  "id": "/infragate/frontend-dev",
+  "id": "/devx-democart",
   "cmd": null,
-  "cpus": 1,
-  "mem": 128,
+  "cpus": 0.5,
+  "mem": 1028,
   "disk": 0,
-  "instances": 1,
-  "constraints": [
-    [
-      "role",
-      "CLUSTER",
-      "master"
-    ]
+  "instances": 2,
+  "acceptedResourceRoles": [
+    "*"
   ],
   "container": {
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "docker-registry.me.sap.corp/qa/infragate-dev:latest",
-      "network": "BRIDGE",
+      "image": "qkhai20/devx:00e0e2d3c24b38b7b7ec2b9208cffad680d420b4",
+      "network": "HOST",
       "portMappings": [
         {
           "containerPort": 80,
@@ -45,14 +41,15 @@
     }
   ],
   "labels": {
-    "HAPROXY_0_VHOST": "infragate-dev.me.sap.corp",
-    "HAPROXY_GROUP": "external"
+    "HAPROXY_0_VHOST": "ELB_HOSTNAME",
+    "HAPROXY_GROUP": "external",
+    "lastChangedBy": "velocity-team@mesosphere.com"
   },
   "portDefinitions": [
     {
-      "port": 8080,
+      "port": 80,
       "protocol": "tcp",
-      "name": "http",
+      "name": "default",
       "labels": {}
     }
   ]
