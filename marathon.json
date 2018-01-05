@@ -4,7 +4,7 @@
   "cpus": 0.5,
   "mem": 1028,
   "disk": 0,
-  "instances": 2,
+  "instances": 1,
   "acceptedResourceRoles": [
     "*"
   ],
@@ -12,7 +12,7 @@
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "qkhai20/devx:00e0e2d3c24b38b7b7ec2b9208cffad680d420b4",
+      "image": "qkhai20/devx:latest",
       "network": "HOST",
       "portMappings": [
         {

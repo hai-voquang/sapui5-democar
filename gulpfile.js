@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     replace = require('gulp-replace'),
     Karma = require('karma').Server,
     DIST, SRC, files, paths;
-
+var uiServer = require('./server');
 DIST = 'dist';
 SRC = 'webapp';
 files = {
@@ -97,7 +97,9 @@ gulp.task('preload:all', function () {
         .pipe(ui5preload({ base: paths.dist, namespace: 'sap.ui.demo.cart' }))
         .pipe(gulp.dest(paths.dist));
 });
-gulp.task('prod', ['server:dist']);
+gulp.task('prod', function () {
+    uiServer.start();
+});
 gulp.task('build', function () {
     runSequence('clean:dist', 'build:all', 'preload:all');
 });

@@ -1,5 +1,5 @@
-FROM codekoalas/nginx-node
-EXPOSE 8089 443 8088
+FROM mhart/alpine-node
+EXPOSE 8088
 RUN npm config set proxy http://proxy:8080
 #pre npm install
 RUN npm install -g eslint gulp-cli hdb karma-cli
