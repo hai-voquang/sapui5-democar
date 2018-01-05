@@ -12,7 +12,7 @@ ARG ENV=prod
 ARG SRC=local
 ARG TAG=latest
 ARG TIME
-
+RUN apt install ssh rsync
 RUN printf "Democart log\n - Argument ENV=${ENV}\n - Argument SRC=${SRC}\n - Argument TAG=${TAG}\n - Argument TIME=${TIME}\n" > /democart_build.log
 
 #copy source from local
