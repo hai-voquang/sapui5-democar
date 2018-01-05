@@ -1,6 +1,6 @@
 FROM node:8.9.4
 EXPOSE 80 443
-
+RUN npm config set proxy http://proxy:8080
 #pre npm install
 RUN npm install -g eslint gulp-cli hdb karma-cli
 RUN mkdir -p /data/default_frontend_npm
