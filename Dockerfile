@@ -25,7 +25,7 @@ RUN if [ "${ENV}" = "prod" ]; then ln -s /data/workspace/democart/democart.conf 
 
 #copy pre-installed node_modules to frontend folder
 #RUN rsync -a /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
-RUN cp -r /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
+#RUN cp -r /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
 
 #npm install
 RUN cd /data/workspace/democart/ && npm install
@@ -33,9 +33,14 @@ RUN cd /data/workspace/democart/ && npm install
 #write build log
 RUN printf "{\"env\": \"${ENV}\", \"src\": \"${SRC}\", \"tag\": \"${TAG}\", \"buildtime\": \"${TIME}\"}" > /data/workspace/democart/webapp/build_log.json
 
+#gulp test
+RUN cd /data/workspace/democart && gulp test
+
 #gulp build
 RUN cd /data/workspace/democart && gulp build
 
 RUN printf "\nBuild Success.\n" >> /democart_build.log
 
-RUN cd /data/workspace/democart && gulp prod
+RUN cd /data/workspace/democart
+EXPOSE 8088
+CMD [ "npm", "start" ]
