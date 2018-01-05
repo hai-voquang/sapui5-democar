@@ -24,7 +24,8 @@ COPY ./ /data/workspace/democart/
 RUN if [ "${ENV}" = "prod" ]; then ln -s /data/workspace/democart/democart.conf /etc/nginx/conf.d/democart.conf; else ln -s /data/workspace/democart/democart-${ENV}.conf /etc/nginx/conf.d/democart.conf; fi
 
 #copy pre-installed node_modules to frontend folder
-RUN rsync -a /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
+#RUN rsync -a /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
+RUN cp -r /data/workspace/default_frontend_npm/node_modules /data/workspace/democart/
 
 #npm install
 RUN cd /data/workspace/democart/ && npm install
