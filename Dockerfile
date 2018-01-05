@@ -1,4 +1,4 @@
-FROM node:8.9.4
+FROM docker-registry.me.sap.corp/qa/node6-lts
 EXPOSE 80 443
 RUN npm config set proxy http://proxy:8080
 #pre npm install
