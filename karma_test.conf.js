@@ -209,7 +209,7 @@ module.exports = function (config) {
         }],
 
         // report which specs are slower than 500ms
-        reportSlowerThan: 500,
+        reportSlowerThan: 10000,
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits

@@ -1,17 +1,17 @@
 sap.ui.define([
 	//page objects
-	'sap/ui/demo/cart/test/pageobjects/Welcome',
-	'sap/ui/demo/cart/test/pageobjects/Checkout',
-	'sap/ui/demo/cart/test/pageobjects/Home',
-	'sap/ui/demo/cart/test/pageobjects/Category',
-	'sap/ui/demo/cart/test/pageobjects/Product',
-	'sap/ui/demo/cart/test/pageobjects/Cart',
-	'sap/ui/demo/cart/test/pageobjects/Dialog',
+	'sap/ui/demo/cart/test/integration/pageobjects/Welcome',
+	'sap/ui/demo/cart/test/integration/pageobjects/Checkout',
+	'sap/ui/demo/cart/test/integration/pageobjects/Home',
+	'sap/ui/demo/cart/test/integration/pageobjects/Category',
+	'sap/ui/demo/cart/test/integration/pageobjects/Product',
+	'sap/ui/demo/cart/test/integration/pageobjects/Cart',
+	'sap/ui/demo/cart/test/integration/pageobjects/Dialog',
 	// journeys
-	"sap/ui/demo/cart/test/WelcomeJourney",
-	"sap/ui/demo/cart/test/DeleteProductJourney",
-	"sap/ui/demo/cart/test/BuyProductJourney",
-	"sap/ui/demo/cart/test/FilterJourney"
+	"sap/ui/demo/cart/test/integration/WelcomeJourney"
+	//"sap/ui/demo/cart/test/integration/DeleteProductJourney",
+	// "sap/ui/demo/cart/test/integration/BuyProductJourney",
+	// "sap/ui/demo/cart/test/integration/FilterJourney"
 ], function () {
 	"use strict";
 });

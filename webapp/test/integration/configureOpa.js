@@ -1,19 +1,20 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"sap/ui/demo/cart/test/arrangement/Arrangement",
+	"sap/ui/demo/cart/test/integration/arrangement/iframe/Arrangement",
 	// QUnit additions
 	"sap/ui/qunit/qunit-css",
+	"sap/ui/thirdparty/qunit",
 	"sap/ui/qunit/qunit-junit",
 	"sap/ui/qunit/qunit-coverage",
 	// Page Objects
-	"sap/ui/demo/cart/test/pageobjects/Home",
-	"sap/ui/demo/cart/test/pageobjects/Welcome",
-	"sap/ui/demo/cart/test/pageobjects/Category",
-	"sap/ui/demo/cart/test/pageobjects/Product",
-	"sap/ui/demo/cart/test/pageobjects/Cart",
-	"sap/ui/demo/cart/test/pageobjects/Dialog",
-	"sap/ui/demo/cart/test/pageobjects/Checkout",
-	"sap/ui/demo/cart/test/pageobjects/OrderCompleted"
+	"sap/ui/demo/cart/test/integration/pageobjects/Home",
+	"sap/ui/demo/cart/test/integration/pageobjects/Welcome",
+	"sap/ui/demo/cart/test/integration/pageobjects/Category",
+	"sap/ui/demo/cart/test/integration/pageobjects/Product",
+	"sap/ui/demo/cart/test/integration/pageobjects/Cart",
+	"sap/ui/demo/cart/test/integration/pageobjects/Dialog",
+	"sap/ui/demo/cart/test/integration/pageobjects/Checkout",
+	"sap/ui/demo/cart/test/integration/pageobjects/OrderCompleted"
 ], function (Opa5, Arrangement) {
 	"use strict";
 

@@ -103,5 +103,8 @@ gulp.task('prod', function () {
 gulp.task('build', function () {
     runSequence('clean:dist', 'build:all', 'preload:all');
 });
+gulp.task('dev', ['server:src', 'watch:src']);
 // default task
-gulp.task('default', ['server:src', 'watch:src']);
+gulp.task('default', function () {
+    runSequence('build', 'prod');
+});
