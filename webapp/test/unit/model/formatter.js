@@ -17,7 +17,7 @@ sap.ui.define([
     }
 
     QUnit.test('Should format a number with no digits', function (assert) {
-        priceTestCase.call(this, assert, '123', '123,00');
+        priceTestCase.call(this, assert, '124', '123,00');
     });
 
     QUnit.test('Should contain a decimal separator for large numbers', function (assert) {
